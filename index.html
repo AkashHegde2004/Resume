@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Akash | Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e40af;
+      --accent: #3b82f6;
+      --bg-light: #f9fafc;
+      --bg-dark: #111827;
+      --text-dark: #1f2937;
+      --text-light: #ffffff;
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* HEADER WITH BACKGROUND IMAGE & OVERLAY */
+    header {
+      position: relative;
+      background: url('anders-drange-okxqeyvAArU-unsplash.jpg') center/cover no-repeat;
+      color: var(--text-light);
+      text-align: center;
+      padding: 6rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    header h1,
+    header p {
+      position: relative;
+      z-index: 1;
+    }
+    header h1 {
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 800;
+    }
+    header p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-top: 0.7rem;
+      opacity: 0.85;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: var(--accent);
+      transition: 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      width: 50px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 5px;
+    }
+
+    .about {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.7;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: var(--accent);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .skill-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      min-width: 200px;
+      text-align: center;
+    }
+
+    #contact {
+      background: var(--bg-dark);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+    }
+    #contact a {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #e5e7eb;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .card img {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Akash Shreekant Hegde</h1>
+    <p>Frontend & AI Developer | Clean Code Enthusiast | Real-time Innovation</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p class="about">
+      I'm a software and frontend developer focused on crafting modern, responsive web applications and intelligent AI solutions. 
+      I specialize in Python, React, and NLP with a strong flair for UI/UX. Whether it's real-time sentiment detection or image classification,
+      I love turning innovative ideas into impactful tools.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <img src="engin-akyurt-Y5n8mCpvlZU-unsplash.jpg" alt="Vegetable & Fruit Classifier">
+        <div class="card-body">
+          <h3>Vegetable & Fruit Classifier</h3>
+          <p>CNN-powered Streamlit app to classify fruits and vegetables in real-time from images.</p>
+          <a href="https://github.com/AkashHegde2004/Vegetable-and-Fruit-Classification-Using-CNN" class="btn" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="card">
+        <img src="hi.webp" alt="Sentiment Analysis">
+        <div class="card-body">
+          <h3>Multilingual Sentiment Analysis</h3>
+          <p>Transformer-based NLP system to detect emotional tones in multiple languages.</p>
+          <a href="https://github.com/AkashHegde2004/Multilingual-Sentiment-Analysis-Using-NLP-Public" class="btn" target="_blank">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-box"><strong>Languages:</strong><br> Python, C, JavaScript</div>
+      <div class="skill-box"><strong>Web Tools:</strong><br> HTML, CSS, React, Streamlit</div>
+      <div class="skill-box"><strong>AI/ML:</strong><br> TensorFlow, NLP, CNNs</div>
+      <div class="skill-box"><strong>Tools:</strong><br> SQLite, GitHub, VS Code</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 <a href="mailto:akashhegde2203@gmail.com">akashhegde2203@gmail.com</a></p>
+    <p>🌐 <a href="https://github.com/AkashHegde2004" target="_blank">github.com/AkashHegde2004</a></p>
+    <p>📞 +91 9353289259</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Akash Shreekant Hegde
+  </footer>
+
+</body>
+</html>
